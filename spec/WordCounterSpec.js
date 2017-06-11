@@ -15,4 +15,14 @@ describe("WordCounter", function(){
     });
 
   });
+
+  describe("listWords", function() {
+
+    it("should list all of the words with their count", function() {
+      expect(counter.listWords([ Object({ a: 2 }),
+        Object({ hello: 2 }), Object({ b: 1 }),
+        Object({ went: 1 }) ])).toEqual("a: 2\nhello: 2\nb: 1\nwent: 1");
+    });
+
+  });
 });
