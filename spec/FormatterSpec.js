@@ -18,7 +18,18 @@ describe("Formatter", function(){
 
     it("should remove all whitespace", function() {
       formatter.format("hello   there");
-      expect(formatter.formattedWords).toEqual("hello there")
+      expect(formatter.formattedWords).toEqual("hello there");
+    });
+
+    it("should split string into an array of single words", function() {
+      formatter.format("these are some words");
+      expect(formatter.allWords)
+      .toEqual(["these", "are", "some", "words"]);
+    });
+
+    it("should return the array at the end", function() {
+      expect(formatter.format("Here  are some words?!?!?!"))
+      .toEqual(["here", "are", "some", "words"]);
     });
   });
 
@@ -55,6 +66,14 @@ describe("Formatter", function(){
     it("should replace any spaces greater than one with one space", function(){
       formatter.stripWhitespace("hello     there");
       expect(formatter.formattedWords).toEqual("hello there");
+    });
+  });
+
+  describe("splitString", function() {
+    it("should split string into an array of single words", function(){
+      formatter.splitString("these are some words");
+      expect(formatter.allWords)
+      .toEqual(["these", "are", "some", "words"]);
     });
   });
 });
