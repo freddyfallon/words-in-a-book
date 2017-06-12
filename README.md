@@ -60,3 +60,7 @@ node app.js
 ```
 
 and then navigate to http://localhost:3000/ on your browser.
+
+## A note on the interface
+
+Originally, this app ran in the JavaScript console. I took the decision to quickly build a simple interface in the last few hours of this project. Please excuse the styling, because there isn't any!
