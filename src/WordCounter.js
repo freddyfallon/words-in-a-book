@@ -3,6 +3,7 @@
     this.countedArray = [];
     this.sortedArray = [];
     this.primeNumberArray = [];
+    this.finalOutput = "";
   }
 
   WordCounter.prototype.getWords = function(array) {
@@ -65,10 +66,13 @@
   };
 
   WordCounter.prototype.returnWords = function(array) {
-    for (var key in array) {
-      console.log(array[key]);
+    for (var i = 0; i < array.length; i++) {
+      for (var k in array[i]){
+         this.finalOutput += k + " appears " + this.getValue(array[i]) + " times.";
+      }
     }
   };
+
   exports.WordCounter = WordCounter;
 
 })(this);

@@ -4,7 +4,7 @@ function FileHandler(file) {
 
 FileHandler.prototype.readFile = function(file) {
   var reader = new FileReader();
-  let handler = this;
+  var handler = this;
   reader.onload = function(loadedFile) {
     handler.storeText(loadedFile.target.result);
   };
@@ -12,5 +12,5 @@ FileHandler.prototype.readFile = function(file) {
 };
 
 FileHandler.prototype.storeText = function(text) {
-  this.fileText = text;
+  this.allText = text;
 };

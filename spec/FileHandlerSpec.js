@@ -1,14 +1,15 @@
 describe("FileHandler", function() {
   var handler
-  var file
 
   beforeEach(function() {
     handler = new FileHandler();
   });
 
-  describe("open", function() {
-    it("Should return the file", function() {
-      expect(handler.open(file)).toEqual(file);
-    })
-  })
-})
+  describe("storeText", function() {
+    it("Should store a file in allText", function() {
+      text = "hello";
+      handler.storeText(text);
+      expect(handler.allText).toEqual("hello");
+    });
+  });
+});
