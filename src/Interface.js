@@ -1,17 +1,28 @@
-var fileInput = document.getElementById('fileInput');
-var fullText = "";
-var processor = new Processor();
-var formatter = new Formatter();
-var counter = new WordCounter();
+$(document).ready(function() {
+  $('#count').click(function(){
+    let file = document.getElementById("fileInput").files[0];
+    handler = new FileHandler(file);
+    handler.readFile();
+  });
 
-window.onload = function() {
-
-    fileInput.addEventListener('change', function(e) {
-      var file = fileInput.files[0];
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        fullText += e.target.result;
-    };
-      reader.readAsText(file);
-    });
-};
+  $('#prime').click(function(){
+    let file = document.getElementById("fileInput").files[0];
+    handler = new FileHandler(file);
+    formatter = new Formatter();
+    counter = new WordCounter();
+    processor = new Processor();
+    handler.readFile();
+    processor.getWords(handler.fileText);
+  });
+});
+// window.onload = function() {
+//
+//     fileInput.addEventListener('change', function(e) {
+//       var file = fileInput.files[0];
+//       var reader = new FileReader();
+//       reader.onload = function(e) {
+//         fullText += e.target.result;
+//     };
+//       reader.readAsText(file);
+//     });
+// };
