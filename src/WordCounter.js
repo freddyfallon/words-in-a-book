@@ -2,9 +2,23 @@
   function WordCounter(words) {
     this.countedArray = [];
     this.sortedArray = [];
+    this.primeNumberArray = [];
   }
 
-  WordCounter.prototype.count = function(array) {
+  WordCounter.prototype.getWords = function(array) {
+    this.addCounters(array);
+    this.sortWords(this.countedArray);
+    this.returnWords(this.sortedArray);
+  };
+
+  WordCounter.prototype.getPrimeWords = function(array) {
+    this.addCounters(array);
+    this.sortWords(this.countedArray);
+    this.isPrime(this.sortedArray);
+    this.returnWords(this.primeNumberArray);
+  };
+
+  WordCounter.prototype.addCounters = function(array) {
     var rObj = {};
     var finalArray = [];
     array.map(function(currentValue, index) {
@@ -24,23 +38,35 @@
     return this.countedArray;
   };
 
-  WordCounter.prototype.compare = function(a, b) {
-    if (Object.values(a) < Object.values(b)) {
-      return -1;
-    }
-    if (Object.values(a) > Object.values(b)) {
-      return 1;
-    }
-    return 0;
+  WordCounter.prototype.getValue = function(obj) {
+    for (let key in obj) return obj[key];
   };
 
   WordCounter.prototype.sortWords = function(array) {
-    this.sortedArray = array.sort(this.compare);
+    this.sortedArray = array.sort((a, b)  => this.getValue(b) - this.getValue(a));
+  };
+
+  WordCounter.prototype.primeCheck = function(value) {
+    var d = value - 1;
+    while (d > 1) {
+      if ((value % d) === 0) return false;
+      d--;
+    }
+    return true;
+  };
+
+  WordCounter.prototype.isPrime = function(array) {
+    for (var i = 0; i < array.length ; i++) {
+      if (this.primeCheck(this.getValue(array[i])) === true) {
+        this.primeNumberArray.push(array[i]);
+      }
+    }
+    return this.primeNumberArray;
   };
 
   WordCounter.prototype.returnWords = function(array) {
     for (var key in array) {
-      return array[key];
+      console.log(array[key]);
     }
   };
   exports.WordCounter = WordCounter;
