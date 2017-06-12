@@ -16,12 +16,14 @@ $(document).ready(function() {
   function getWords(text) {
     var processor = new Processor();
     processor.getWords(text);
+    $('#announce').text("Here are all of the words and their occurrences:")
     $('#output').html(processor.counter.finalOutput);
   }
 
   function getPrimeWords(text) {
     var processor = new Processor();
     processor.getPrimeWords(text);
+    $('#announce').text("Here are all of the words that appear a number of times that is prime:")
     $('#output').html(processor.counter.finalOutput);
   }
 });
