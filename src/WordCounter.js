@@ -66,13 +66,14 @@
   };
 
   WordCounter.prototype.returnWords = function(array) {
+    this.finalOutput += "<ul>"
     for (var i = 0; i < array.length; i++) {
       for (var k in array[i]){
-         this.finalOutput += k + " appears " + this.getValue(array[i]) + " times.";
+         this.finalOutput += "<li>" + k + " appears " + this.getValue(array[i]) + " times." + "</li>";
       }
     }
   };
-
+    this.finalOutput += "</ul>"
   exports.WordCounter = WordCounter;
 
 })(this);

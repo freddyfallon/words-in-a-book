@@ -16,12 +16,12 @@ $(document).ready(function() {
   function getWords(text) {
     var processor = new Processor();
     processor.getWords(text);
-    $('#output').text(processor.counter.finalOutput);
+    $('#output').html(processor.counter.finalOutput);
   }
 
   function getPrimeWords(text) {
     var processor = new Processor();
     processor.getPrimeWords(text);
-    $('#output').text(processor.counter.finalOutput);
+    $('#output').html(processor.counter.finalOutput);
   }
 });
