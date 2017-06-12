@@ -1,15 +1,15 @@
 function Processor() {
   this.formattedWords = [];
-  var formatter = new Formatter();
-  var counter = new WordCounter();
+  this.formatter = new Formatter();
+  this.counter = new WordCounter();
 }
 
   Processor.prototype.getWords = function(string) {
-    this.formattedWords = formatter.format(string);
-    counter.getWords(this.formattedWords);
+    this.formattedWords = this.formatter.format(string);
+    this.counter.getWords(this.formattedWords);
   };
 
   Processor.prototype.getPrimeWords = function(string) {
-    this.formattedWords = formatter.format(string);
-    counter.getPrimeWords(this.formattedWords);
+    this.formattedWords = this.formatter.format(string);
+    this.counter.getPrimeWords(this.formattedWords);
   };
