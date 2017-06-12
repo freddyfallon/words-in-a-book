@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Words</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+    <script src="src/Formatter.js" defer></script>
+    <script src="src/WordCounter.js" defer></script>
+    <script src="src/Processor.js" defer></script>
+    <script src="src/Interface.js" defer></script>
+    <script src="src/FileHandler.js" defer></script>
+  </head>
+
+  <body>
+    <h2>Words in a book!</h2>
+    <p>Welcome to Words in a book. To get started, upload a .txt file below.</p>
+    <p>When you are done, hit 'All words' to see all words by their count, and hit 'Prime numbers' to see all numbers that appear a number of times that is prime.</p>
+
+    <tr>
+    <input type="file" id="fileInput" size="50">
+    <button id='count' >All words</button>
+    <button id='prime' >Prime numbers</button>
+    </tr>
+    <h2 id="announce"></h2>
+    <p id='output'></div>
+  </body>
+</html>

@@ -1,17 +1,29 @@
-var fileInput = document.getElementById('fileInput');
-var fullText = "";
-var processor = new Processor();
-var formatter = new Formatter();
-var counter = new WordCounter();
+$(document).ready(function() {
+  $('#fileInput').on("change", function() {
+    var file = document.getElementById("fileInput").files[0];
+    handler = new FileHandler(file);
+    handler.readFile();
+  })
 
-window.onload = function() {
+  $('#count').click(function(){
+    getWords(handler.allText);
+  });
 
-    fileInput.addEventListener('change', function(e) {
-      var file = fileInput.files[0];
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        fullText += e.target.result;
-    };
-      reader.readAsText(file);
-    });
-};
+  $('#prime').click(function(){
+    getPrimeWords(handler.allText);
+  });
+
+  function getWords(text) {
+    var processor = new Processor();
+    processor.getWords(text);
+    $('#announce').text("Here are all of the words and their occurrences:")
+    $('#output').html(processor.counter.finalOutput);
+  }
+
+  function getPrimeWords(text) {
+    var processor = new Processor();
+    processor.getPrimeWords(text);
+    $('#announce').text("Here are all of the words that appear a number of times that is prime:")
+    $('#output').html(processor.counter.finalOutput);
+  }
+});
