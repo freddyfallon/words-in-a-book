@@ -47,7 +47,7 @@ Clone or download this repo.
 
 In order to run this app, you will need to have Node installed. If you don't have it, [download it on their website](https://nodejs.org).
 
-In addition, you will need to make sure you have the right node packages installed. In order to do this, simply `cd` into the directory and run:
+In addition, you will need to make sure you have the right node packages installed. In order to do this, simply `cd` into the project's directory and run:
 
 ```
 npm install
